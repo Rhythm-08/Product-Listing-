@@ -16,10 +16,13 @@ export class FakeStoreService {
   }
 
 
-  setProductDetail(data:productListModal){
-    this.storeProductDetails.pop();
-    this.storeProductDetails.push(data);
-  }
+    setProductDetail(data:productListModal){
+      localStorage.clear();
+
+      this.storeProductDetails.pop();
+      this.storeProductDetails.push(data);
+      localStorage.setItem('productDetails',JSON.stringify(this.storeProductDetails))
+    }
   getProductDetails(){
     return this.storeProductDetails;
   }

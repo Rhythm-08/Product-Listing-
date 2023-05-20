@@ -1,1 +1,48 @@
-<p>product-detail works!</p>
+<div class="container py-4 my-4 mx-auto d-flex flex-column" *ngFor="let productDetail of productDetailArray">
+  <div class="header">
+    <div class="row r1">
+      <div class="col-md-9 abc">
+        <h1>{{productDetail?.title}}</h1>
+      </div>
+      <div class="col-md-3 text-right pqr"><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+          class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+      <p class="text-right para">Based on {{productDetail?.rating?.count}} Review</p>
+    </div>
+  </div>
+  <div class="container-body mt-4">
+    <div class="row r3">
+      <div class="col-md-5 p-0 klo">
+        <ul>
+          <li>100% Quality</li>
+          <li>Free Shipping</li>
+          <li>Easy Returns</li>
+          <li>12 Months Warranty</li>
+          <li>EMI Starting from (On Credit Cards)</li>
+          <li>Normal Delivery : 4-5 Days</li>
+          <li>Express Delivery : 2-3 Days</li>
+          <li>COD Available (All Over India)</li>
+        </ul>
+      </div>
+      <div class="col-md-7">
+        <img [src]="productDetail?.image" alt="" width="500px" height="500px">
+      </div>
+    </div>
+  </div>
+  <div class="footer d-flex flex-column mt-5 justify-content-end">
+    <div class="row r4">
+      <div class="col-md-2 myt des">
+        <a href="#">Description</a>
+      </div>
+      <p>{{productDetail?.description}}</p>
+      <div class="col-md-2 myt ">
+        <a href="#">rating</a>
+      </div>
+      <p>{{productDetail?.rating?.rate}}</p>
+      <div class="col-md-2 myt payButton">
+        <button type="button" class="btn btn-outline-warning">
+          <a routerLink="product-list">BUY NOW for ${{productDetail?.price | number: '1.0-0'}}</a>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

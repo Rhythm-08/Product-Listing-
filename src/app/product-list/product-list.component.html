@@ -14,7 +14,7 @@
       <th scope="row">{{productList?.id}}</th>
       <td>{{productList?.title}}</td>
       <td>{{productList?.category}}</td>
-      <td>{{productList?.price}}</td>
+      <td>${{productList?.price | number: '1.0-0'}}</td>
       <td id="view" (click)="onClick(productList.id)" (mouseover)="onMouseOver($event)" (mouseout)="onMouseOut($event)">View </td>
     </tr>
 

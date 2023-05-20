@@ -7,7 +7,7 @@ const routes: Routes = [
   {path:'product-list',component:ProductListComponent},
   {path:'product-details',component:ProductDetailComponent},
   {path:'',redirectTo:'product-list',pathMatch:'full'},
-  {path:'**',redirectTo:'product-list'}
+  {path:'**',redirectTo:'product-list',pathMatch:'full'}
 ];
 
 @NgModule({
