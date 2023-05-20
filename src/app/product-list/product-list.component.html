@@ -1,1 +1,22 @@
-<p>product-list works!</p>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">category</th>
+      <th scope="col">price</th>
+      <th scope="col">More Details</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let productList of productListArray">
+    <tr>
+      <th scope="row">{{productList?.id}}</th>
+      <td>{{productList?.title}}</td>
+      <td>{{productList?.category}}</td>
+      <td>{{productList?.price}}</td>
+      <td id="view" (click)="onClick(productList.id)" (mouseover)="onMouseOver($event)" (mouseout)="onMouseOut($event)">View </td>
+    </tr>
+
+  </tbody>
+</table>
