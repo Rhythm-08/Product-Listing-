@@ -10,17 +10,17 @@ import { productListModal } from '../interface';
 export class ProductListComponent implements OnInit{
 
   productListArray:productListModal[]=[]
-  viewBackgroundColor: string = '';
+  viewBackgroundColor = '';
   constructor(private fakeService:FakeStoreService,private router:Router){}
 
   ngOnInit(){
      this.fakeService.getAllProducts().subscribe((response:any)=>{
-      console.log(response)
+
       this.productListArray=response
      });
   }
   onClick(id:number){
-    console.log(id);
+
     this.fakeService.setProductDetail(this.productListArray[id-1]);
     this.router.navigate(['product-details'])
 

@@ -7,9 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Quiz-Application';
-  isQuizActive:boolean = false;
-  isQuestionActive:boolean = false;
-  isResultActive:boolean = false;
+  isQuizActive = false;
+  isQuestionActive = false;
+  isResultActive = false;
 
   clickProductDetail(){
     this.isResultActive = true;

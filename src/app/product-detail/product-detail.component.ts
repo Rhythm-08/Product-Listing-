@@ -1,4 +1,4 @@
-import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FakeStoreService } from '../fake-store.service';
 import { productListModal } from '../interface';
 import { Router } from '@angular/router';
@@ -16,10 +16,10 @@ export class ProductDetailComponent implements OnInit,OnDestroy {
   productDetailArray: productListModal[] = []
   ngOnInit(): void {
     this.productDetailArray = this.fakeService.getProductDetails()
-    console.log(this.productDetailArray);
+
 
     if (this.productDetailArray.length < 1) {
-      let data = localStorage.getItem('productDetails')
+      const data = localStorage.getItem('productDetails')
       if (data) {
         this.productDetailArray = JSON.parse(data)
       }
