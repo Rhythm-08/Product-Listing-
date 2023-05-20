@@ -40,7 +40,7 @@
       <p>{{productDetail?.rating?.rate}}</p>
       <div class="col-md-2 myt payButton">
         <button type="button" class="btn btn-outline-warning">
-          <a routerLink="product-list">BUY NOW for ${{productDetail?.price | number: '1.0-0'}}</a>
+          <a (click)="onButtonClick()">BUY NOW for ${{productDetail?.price | number: '1.0-0'}}</a>
         </button>
       </div>
     </div>

@@ -26,6 +26,9 @@ export class ProductDetailComponent implements OnInit,OnDestroy {
     }
 
   }
+  onButtonClick(){
+    this.router.navigate(['product-list'])
+  }
   ngOnDestroy(): void {
     this.productDetailArray.pop();
   }
