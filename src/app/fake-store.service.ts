@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { productListModal } from './interface';
+import { catchError, throwError } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,7 +13,9 @@ export class FakeStoreService {
 
 
   getAllProducts(){
-    return this.httpService.get(this.baseUrl);
+    return this.httpService.get(this.baseUrl).pipe(
+      catchError(this.handleError)
+    );
   }
 
 
@@ -27,5 +30,19 @@ export class FakeStoreService {
     return this.storeProductDetails;
   }
 
+  private handleError(error: HttpErrorResponse) {
 
+    if (error.error instanceof ErrorEvent) {
+
+      console.error('An error occurred:', error.error.message);
+    } else {
+
+      console.error(
+        `Backend returned code ${error.status}, ` +
+        `body was: ${error.error}`
+      );
+    }
+
+    return throwError('Something went wrong. Please try again later.');
+  }
 }
